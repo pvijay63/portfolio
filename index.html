@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H4X0R_PR0 - Advanced Ethical Hacking Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #000000;
+            --text-color: #00ff00;
+            --accent-color: #00ffff;
+            --secondary-color: #ff00ff;
+            --tertiary-color: #ffff00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        #hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://picsum.photos/1920/1080?random=1') no-repeat center center/cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glitch-container {
+            position: relative;
+        }
+
+        .glitch {
+            font-size: 3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: relative;
+            text-shadow: 0.05em 0 0 var(--accent-color), -0.05em -0.025em 0 var(--secondary-color),
+                         0.025em 0.05em 0 var(--tertiary-color);
+            animation: glitch 725ms infinite;
+        }
+
+        .glitch span {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .glitch span:first-child {
+            animation: glitch 500ms infinite;
+            clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+            transform: translate(-0.04em, -0.03em);
+            opacity: 0.75;
+        }
+
+        .glitch span:last-child {
+            animation: glitch 375ms infinite;
+            clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+            transform: translate(0.04em, 0.03em);
+            opacity: 0.75;
+        }
+
+        @keyframes glitch {
+            0% {
+                text-shadow: 0.05em 0 0 var(--accent-color), -0.05em -0.025em 0 var(--secondary-color),
+                             0.025em 0.05em 0 var(--tertiary-color);
+            }
+            14% {
+                text-shadow: 0.05em 0 0 var(--accent-color), -0.05em -0.025em 0 var(--secondary-color),
+                             0.025em 0.05em 0 var(--tertiary-color);
+            }
+            15% {
+                text-shadow: -0.05em -0.025em 0 var(--accent-color), 0.025em 0.025em 0 var(--secondary-color),
+                             -0.05em -0.05em 0 var(--tertiary-color);
+            }
+            49% {
+                text-shadow: -0.05em -0.025em 0 var(--accent-color), 0.025em 0.025em 0 var(--secondary-color),
+                             -0.05em -0.05em 0 var(--tertiary-color);
+            }
+            50% {
+                text-shadow: 0.025em 0.05em 0 var(--accent-color), 0.05em 0 0 var(--secondary-color),
+                             0 -0.05em 0 var(--tertiary-color);
+            }
+            99% {
+                text-shadow: 0.025em 0.05em 0 var(--accent-color), 0.05em 0 0 var(--secondary-color),
+                             0 -0.05em 0 var(--tertiary-color);
+            }
+            100% {
+                text-shadow: -0.025em 0 0 var(--accent-color), -0.025em -0.025em 0 var(--secondary-color),
+                             -0.025em -0.05em 0 var(--tertiary-color);
+            }
+        }
+
+        .typed-text {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-top: 1rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 1.5rem;
+            border-radius: 5px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, transparent, transparent, var(--accent-color));
+            animation: rotate 4s linear infinite;
+        }
+
+        .skill-card::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: var(--bg-color);
+            border-radius: 5px;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-card h3 {
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.5rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--text-color);
+            color: var(--text-color);
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            .glitch {
+                font-size: 2rem;
+            }
+
+            .typed-text {
+                font-size: 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas class="matrix-bg" id="matrix"></canvas>
+    <header>
+        <nav class="container">
+            <div class="logo">H4Vijay_PR0</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="glitch-container">
+                <h1 class="glitch">
+                    Hi Iam Ethical Hacker Vijay vardhan
+                    <span aria-hidden="true">Hi Iam Ethical Hacker Vijay vardhan</span>
+                    <span aria-hidden="true">Hi Iam Ethical Hacker Vijay vardhan</span>
+                </h1>
+            </div>
+            <div class="typed-text"></div>
+        </section>
+
+        <br><br>
+        <section id="about" class="section container" style="background-color: #000000; padding: 10px;">
+            <h2>About Me</h2>
+            <p>As an elite ethical hacker, I specialize in uncovering vulnerabilities and fortifying digital defenses. With a track record of securing high-profile systems and a passion for staying ahead of cyber threats, I bring a unique blend of technical expertise and strategic thinking to every project. My mission is to make the digital world a safer place, one system at a time.</p>
+        </section>
+
+        <br><br>
+        <section id="skills" class="section container">
+            <h2>My Arsenal</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Penetration Testing</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-bug"></i>
+                    <h3>Vulnerability Assessment</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Secure Coding</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Network Security</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-lock"></i>
+                    <h3>Cryptography</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-user-secret"></i>
+                    <h3>Social Engineering</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section container">
+            <h2>Covert Operations</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="https://picsum.photos/300/200?random=1" alt="Project 1">
+                    <div class="project-info" style="margin-left: 10px;">
+                        <h3>Operation Firewall</h3>
+                        <p>Conducted a stealth penetration test on a Fortune 500 company's network, identifying and patching 17 critical vulnerabilities before they could be exploited.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://picsum.photos/300/200?random=2" alt="Project 2">
+                    <div class="project-info">
+                        <h3>Project Cipher</h3>
+                        <p>Developed a custom encryption algorithm for a government agency, enhancing their data protection capabilities against advanced persistent threats.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://picsum.photos/300/200?random=3" alt="Project 3">
+                    <div class="project-info">
+                        <h3>Operation Ghost Protocol</h3>
+                        <p>Led a red team exercise for a major financial institution, simulating a full-scale cyber attack to test and improve their incident response procedures.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section container">
+            <h2>Secure Communication Channel</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Codename</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Secure Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Encrypted Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit">Transmit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 H4Vijay_PR0. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Matrix background effect
+            const canvas = document.getElementById('matrix');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+            const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            const nums = '0123456789';
+            const alphabet = katakana + latin + nums;
+
+            const fontSize = 16;
+            const columns = canvas.width / fontSize;
+
+            const rainDrops = [];
+
+            for (let x = 0; x < columns; x++) {
+                rainDrops[x] = 1;
+            }
+
+            const draw = () => {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.fillStyle = '#0F0';
+                ctx.font = fontSize + 'px monospace';
+
+                for (let i = 0; i < rainDrops.length; i++) {
+                    const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                    ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+                    if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                        rainDrops[i] = 0;
+                    }
+                    rainDrops[i]++;
+                }
+            };
+
+            setInterval(draw, 30);
+
+            // Typing effect
+            const typedTextElement = document.querySelector('.typed-text');
+            const textToType = "Securing the digital frontier";
+            let index = 0;
+
+            function typeText() {
+                if (index < textToType.length) {
+                    typedTextElement.textContent += textToType.charAt(index);
+                    index++;
+                    setTimeout(typeText, 100);
+                } else {
+                    setTimeout(eraseText, 2000);
+                }
+            }
+
+            function eraseText() {
+                if (index > 0) {
+                    typedTextElement.textContent = textToType.substring(0, index - 1);
+                    index--;
+                    setTimeout(eraseText, 50);
+                } else {
+                    setTimeout(typeText, 1000);
+                }
+            }
+
+            typeText();
+
+            // GSAP Animations
+            gsap.from(".skill-card", {
+                duration: 1,
+                opacity: 0,
+                y: 50,
+                stagger: 0.2,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#skills",
+                    start: "top 80%",
+                }
+            });
+
+            gsap.from(".project-card", {
+                duration: 1,
+                opacity: 0,
+                x: -50,
+                stagger: 0.2,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#projects",
+                    start: "top 80%",
+                }
+            });
+
+            gsap.from(".contact-form", {
+                duration: 1,
+                opacity: 0,
+                y: 50,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#contact",
+                    start: "top 80%",
+                }
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Form submission (you would typically send this data to a server)
+            const form = document.querySelector('.contact-form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Transmission received. Standby for secure response.');
+                form.reset();
+            });
+        });
+    </script>
+</body>
+</html>
