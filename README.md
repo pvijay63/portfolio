@@ -56,8 +56,8 @@ If you want to explore my work, feel free to clone any of the repositories:
 ## 📬 Let's Connect
 
 - **Website**: [https://yourwebsite.com](https://yourwebsite.com)
-- **LinkedIn**: [https://www.linkedin.com/in/yourprofile](https://www.linkedin.com/in/yourprofile)
-- **Twitter**: [https://twitter.com/yourhandle](https://twitter.com/yourhandle)
+- **LinkedIn**: [https://www.linkedin.com/in/yourprofile](https://www.linkedin.com/in/vijay-vardhan-545957227/)
+- **Twitter**: [https://twitter.com/yourhandle](https://x.com/?lang=en-in)
 
 Feel free to reach out if you're interested in collaborating on security research, penetration testing, or cybersecurity projects!
 
